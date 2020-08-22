@@ -8,6 +8,6 @@
 </head>
 <body>
     <h1>Aung</h1>
-    <img src="fa.png" alt="FA">
+    <img src="img/fa.png" alt="FA">
 </body>
 </html>

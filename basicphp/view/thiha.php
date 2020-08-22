@@ -8,6 +8,6 @@
 </head>
 <body>
     <h1>THIHA</h1>
-    <img src="memeone.png" alt="MEME">
+    <img src="img/memeone.png" alt="MEME">
 </body>
 </html>
