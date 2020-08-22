@@ -2,7 +2,7 @@
     // Separation of Concern
     // K.I.S.S Keep it Simple, Stupid
     // Semantic
-    // Don't repeat
+    // Don't repeat (reusable)
     if(isset($_GET['name'])) {
         $name = $_GET['name'];
         get_view($name);
