@@ -5,21 +5,24 @@
     // Don't repeat (Reusable)
     // Decoupling
 
-    require "../wpa34/functions.php";
+    // $GLOBALS / $_SERVER
 
-    if(isset($_GET['name'])) {
-        $name = $_GET['name'];
-        $data = [
-            'title' => $name
-        ];
-        get_view($name, $data);
+    $request_uri = explode("/", $_SERVER['REQUEST_URI']);
+    $script_name = explode("/", $_SERVER['SCRIPT_NAME']);
+    $result_request = array_diff($request_uri, $script_name);
+    $final_request = array_values($result_request);
+    
+    require "../wpa34/functions.php";
+    
+    if(empty($final_request)) {
+        get_view("home");
     } else {
-        $data = [
-            'title' => 'Myanmar Links',
-            'another' => 'How are you?',
-            'next'  => 'How do you do?'  
-        ];
-        get_view("home", $data);
+        $file = "../app/view/" . $final_request[0] . ".php";
+        if(file_exists($file)) {
+            get_view($final_request[0]);
+        } else {
+            echo "404 Not Found! Idiot!";
+        }
     }
     
 ?>
