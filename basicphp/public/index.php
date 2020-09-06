@@ -13,7 +13,7 @@
     $result_request = array_diff($request_uri, $script_name);
     $final_request = array_values($result_request);
     
-    // required functions
+    // loader section
     require "../wpa34/functions.php";
     require "../app/controller/controllers.php";
     
@@ -26,7 +26,8 @@
     
     // route
     if(function_exists($controller)) {
-        call_user_func($controller);
+        array_shift($final_request);
+        call_user_func_array($controller, $final_request);
     } else {
         echo "<h1>404 Not Found! Idiot!</h1>";
     }

@@ -23,3 +23,11 @@ function AungContontroller() {
     get_view("aung", $data);
 
 }
+
+function AnotherController($value, $next) {
+    $data = [
+        'first' => $value,
+        'second' => $next
+    ];
+    get_view("anotherq", $data);
+}

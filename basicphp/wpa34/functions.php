@@ -10,6 +10,11 @@ function get_view(string $view, array $data = null) {
     if($data != null) {
         extract($data);
     }
-    require "../app/view/" . strtolower($view) . ".php";
+    $view =  "../app/view/" . strtolower($view) . ".php";
+    if(file_exists($view)) {
+        require $view;
+    } else {
+       trigger_error("VIEW FILE မတွေ့ဘူး၊ ချီးထုတ်", E_USER_ERROR); 
+    }
     ob_end_flush();
 }
